@@ -70,4 +70,16 @@ public class Restaurant {
         return name;
     }
 
+    public int getOrderValueFromItems(ArrayList<String> itemNames) {
+        int orderValue = 0;
+        if (null != itemNames && !itemNames.isEmpty() ) {
+            for (String itemName: itemNames) {
+                Item item = findItemByName(itemName);
+                orderValue += item.getPrice();
+            }
+        }
+        return orderValue;
+
+    }
+
 }

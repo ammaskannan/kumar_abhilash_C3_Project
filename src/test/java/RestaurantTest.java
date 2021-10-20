@@ -107,6 +107,8 @@ class RestaurantTest {
         itemNames.add( chickenSoup );
         itemNames.add( paneerTikka );
 
-        assertEquals(orderValue-1,restaurant.getOrderValueFromItems(itemNames));
+        //System.out.println(restaurant.getOrderValueFromItems(itemNames));
+
+        assertEquals(orderValue,restaurant.getOrderValueFromItems(itemNames));
     }
 }
