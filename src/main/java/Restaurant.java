@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -30,17 +31,9 @@ public class Restaurant {
     public List<Item> getMenu() {
 
         if (menu.isEmpty()) {
-            Item aalooParattha = new Item("Aloo Paratha", 60);
-            Item dal = new Item("Dal", 100);
-            Item gobiParatha = new Item("Gobi Paratha", 65);
-            Item chilliPaneer = new Item("Chilly Paneer", 130);
-            menu.add(aalooParattha);
-            menu.add(dal);
-            menu.add(gobiParatha);
-            menu.add(chilliPaneer);
+            menu.addAll(MenuService.getMenuByRestaurantName(name));
         }
         return menu;
-        //DELETE ABOVE RETURN STATEMENT AND WRITE CODE HERE
     }
 
     private Item findItemByName(String itemName){
