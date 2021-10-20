@@ -18,8 +18,11 @@ public class Restaurant {
     }
 
     public boolean isRestaurantOpen() {
-        return true;
-        //DELETE ABOVE STATEMENT AND WRITE CODE HERE
+        if (getCurrentTime().isAfter(openingTime) && getCurrentTime().isBefore(closingTime) ) {
+            return  true;
+        }
+
+        return false;
     }
 
     public LocalTime getCurrentTime(){ return  LocalTime.now(); }
@@ -27,7 +30,7 @@ public class Restaurant {
     public List<Item> getMenu() {
 
         if (menu.isEmpty()) {
-            tem aalooParattha = new Item("Aloo Paratha", 60);
+            Item aalooParattha = new Item("Aloo Paratha", 60);
             Item dal = new Item("Dal", 100);
             Item gobiParatha = new Item("Gobi Paratha", 65);
             Item chilliPaneer = new Item("Chilly Paneer", 130);
