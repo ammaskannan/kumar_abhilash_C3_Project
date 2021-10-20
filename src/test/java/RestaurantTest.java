@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -86,4 +87,26 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void it_should_be_possible_to_get_ordervalue_from_list_of_items() throws itemNotFoundException {
+
+        String chickenSoup = "Chicken soup";
+        int chickenSoupPrice = 130;
+        restaurant.addToMenu(chickenSoup, chickenSoupPrice);
+
+        String paneerTikka = "Paneer Tikka";
+        int paneerTikkaPrice = 350;
+        restaurant.addToMenu(paneerTikka, paneerTikkaPrice);
+
+        int orderValue = chickenSoupPrice + paneerTikkaPrice;
+
+        ArrayList<String> itemNames = new ArrayList<>();
+        itemNames.add( chickenSoup );
+        itemNames.add( paneerTikka );
+
+        assertEquals(orderValue-1,restaurant.getOrderValueFromItems(itemNames));
+    }
 }
